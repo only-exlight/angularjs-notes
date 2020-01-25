@@ -1,0 +1,5 @@
+<div class="note-list">
+  <div class="note-item" ng-repeat="note in $ctrl.notes">
+    <app-note model="note" on-action="$ctrl.doAction(action, $index)"></app-note>
+  </div>
+</div>

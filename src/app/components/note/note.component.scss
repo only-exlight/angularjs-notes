@@ -1,7 +1,9 @@
+@import '../../variables';
+
 .sticker {
     width: 200px;
     height: 200px;
-    box-shadow: 0 0 10px 5px #b3b3b3;
+    box-shadow: $shadow;
     color: #0d47a1;
     padding: 40px 20px 20px 20px;
     box-sizing: border-box;
@@ -17,7 +19,7 @@
         width: 20px;
         height: 20px;
         background: #353535;
-        box-shadow: 0 0 7px #424242;
+        box-shadow: $shadow;
         border-radius: 50%;
         top: 15px;
         right: calc(50% - 15px);
@@ -25,8 +27,8 @@
     }
 
     &:hover {
-        box-shadow: 0 0 10px 5px #eee;
-        transition: box-shadow .5s;
+        box-shadow: 0 0 10px #eee;
+        transition: box-shadow .2s;
         z-index: 1;
     }
 }

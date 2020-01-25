@@ -1,4 +1,10 @@
 <div class="sticker">
   <div class="nail"></div>
-  {{$ctrl.note.content}}
+  <div class="sticker-title">{{$ctrl.model.title}}</div>
+  <div>{{$ctrl.model.content}}</div>
+  <div class="manage">
+    <button ng-repeat="action in $ctrl.ACTIONS" title="{{action.title}}" ng-click="$ctrl.emitAction(action.action)">
+      <i class="las {{action.ico}}"></i>
+    </button>
+  </div>
 </div>
