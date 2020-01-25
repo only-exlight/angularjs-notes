@@ -1,1 +1,10 @@
+@import './variables.scss';
+@import '~reset-css/sass/reset.scss';
+@import '~line-awesome/dist/line-awesome/scss/line-awesome.scss';
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
 @import './components/note/note.component.scss';
+@import './components/menu/menu.component.scss';
+@import './components/note-list/note-list.component.scss';
+
+@import './pages/notes/notes.page.scss';
