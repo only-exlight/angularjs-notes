@@ -1,7 +1,8 @@
 <nav class="app-nav">
   <div>Notes</div>
   <div class="search-inp">
-    <input type="text" placeholder="Serach note by title">
+    <div class="app-nav-title" ng-if="$ctrl.title">{{$ctrl.title}}</div>
+    <input ng-if="!$ctrl.title" type="text" placeholder="Serach note by title">
   </div>
   <div>
     <a href="#!/add-note" title="Add new note" class="add-btn">
