@@ -1,0 +1,25 @@
+<form>
+  <div>
+    <div>
+      <label for="inp-title">Title</label>
+    </div>
+    <div>
+      <input type="text" id="inp-title" ng-model="$ctrl.model.title" placeholder="Enter note title">
+    </div>
+  </div>
+  <div>
+    <div>
+      <label for="inp-content">Content</label>
+    </div>
+    <div>
+      <textarea name="" id="inp-content" cols="30" rows="10" placeholder="Enter note content"
+        ng-model="$ctrl.model.content"></textarea>
+    </div>
+  </div>
+  <div>
+    <app-colors selected-color="$ctrl.model.color" on-change="$ctrl.changeColor(color)"></app-colors>
+  </div>
+  <div>
+    <button ng-click="$ctrl.saveNote()">Save note</button>
+  </div>
+</form>
