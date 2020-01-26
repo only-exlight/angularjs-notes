@@ -6,14 +6,14 @@ import { E_NOTE_ACTION } from 'src/app/constants';
 class NoteListComponent {
   public notes: NoteModel[];
 
-  constructor(private noteService: NoteService) {
+  constructor(private noteService: NoteService, private $location: any) {
     this.notes = this.noteService.notes;
   }
 
   public doAction(action: E_NOTE_ACTION, index: number) {
     switch (action) {
       case E_NOTE_ACTION.EDIT: {
-        console.warn('Edit');
+        this.$location.path(`/edit-note/${index}`);
         break;
       }
       case E_NOTE_ACTION.REMOVE: {

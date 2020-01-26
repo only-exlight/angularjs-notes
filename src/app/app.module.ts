@@ -20,5 +20,6 @@ module('app', ['ngRoute'])
   .service('storageService', StorageService)
   .config(($routeProvider: any) => {
     $routeProvider.when('/add-note', AddNotePage);
+    $routeProvider.when('/edit-note/:id', AddNotePage)
     $routeProvider.when('/', NotesPage);
   });

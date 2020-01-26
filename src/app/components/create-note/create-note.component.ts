@@ -4,18 +4,22 @@ import { NoteModel } from 'src/app/models';
 class CreateNote {
   public model: NoteModel;
   public onSave: () => void;
+  public onCancel: () => void;
 
   public $onInit() {
     // console.warn(this);
   }
 
   public changeColor(color: string) {
-    console.warn(color);
     this.model.color = color;
   }
 
   public saveNote() {
     this.onSave();
+  }
+
+  public cancel() {
+    this.onCancel();
   }
 }
 
@@ -25,5 +29,6 @@ export const CreateNoteComponent: IComponentOptions = {
   bindings: {
     model: '<',
     onSave: '&',
+    onCancel: '&',
   },
 };
