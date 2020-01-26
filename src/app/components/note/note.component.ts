@@ -11,6 +11,7 @@ class NoteComponent {
   get color() {
     return {
       background: `linear-gradient(30deg, ${this.model.color}, #eee)`,
+      transform: `rotate(${this.model.rotate}deg)`,
     };
   }
 

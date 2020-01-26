@@ -2,9 +2,9 @@
   <app-menu title="$ctrl.title"></app-menu>
   <div class="note-list-container">
     <div class="editor-container">
-      <app-create-note model="$ctrl.note"
-        on-save="$ctrl.saveNote()"
-        on-cancel="$ctrl.cancelEdit()"></app-create-note>
+      <div class="note-editor">
+        <app-create-note model="$ctrl.note" on-save="$ctrl.saveNote()" on-cancel="$ctrl.cancelEdit()"></app-create-note>
+      </div>
       <app-note model="$ctrl.note"></app-note>
     </div>
   </div>

@@ -1,26 +1,31 @@
-<form>
-  <div>
-    <div>
+<form class="note-editor">
+  <div class="form-row">
+    <div class="form-label">
       <label for="inp-title">Title</label>
     </div>
-    <div>
-      <input type="text" id="inp-title" ng-model="$ctrl.model.title" placeholder="Enter note title">
+    <div class="form-input">
+      <input class="app-input" type="text" id="inp-title" ng-model="$ctrl.model.title" placeholder="Enter note title">
     </div>
   </div>
-  <div>
-    <div>
+  <div class="form-row">
+    <div class="form-label">
       <label for="inp-content">Content</label>
     </div>
-    <div>
-      <textarea name="" id="inp-content" cols="30" rows="10" placeholder="Enter note content"
+    <div class="form-input">
+      <textarea class="app-area" name="" id="inp-content" cols="30" rows="10" placeholder="Enter note content"
         ng-model="$ctrl.model.content"></textarea>
     </div>
   </div>
-  <div>
-    <app-colors selected-color="$ctrl.model.color" on-change="$ctrl.changeColor(color)"></app-colors>
+  <div class="form-row">
+    <div class="form-label">
+      <label>Select color</label>
+    </div>
+    <div class="form-input">
+      <app-colors selected-color="$ctrl.model.color" on-change="$ctrl.changeColor(color)"></app-colors>
+    </div>
   </div>
-  <div>
-    <button ng-click="$ctrl.saveNote()">Cancel</button>
-    <button ng-click="$ctrl.saveNote()">Save note</button>
+  <div class="form-row">
+    <button class="app-button" ng-click="$ctrl.saveNote()">Cancel</button>
+    <button class="app-button" ng-click="$ctrl.saveNote()">Save</button>
   </div>
 </form>
