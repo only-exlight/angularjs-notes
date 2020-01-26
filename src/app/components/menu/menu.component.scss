@@ -19,10 +19,20 @@
       color: #000;
     }
   }
-  .search-inp {
+  .menu-center-block {
     width: 30%;
     .app-nav-title {
       text-align: center;
+    }
+    .search {
+      position: relative;
+      .las {
+        position: absolute;
+        right: 0;
+        top: 4px;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
     }
   }
 }

@@ -11,4 +11,5 @@ export interface INote {
   content: string;
   color: string;
   rotate: number;
+  date: number;
 }

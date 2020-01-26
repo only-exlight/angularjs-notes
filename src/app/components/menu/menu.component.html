@@ -1,8 +1,12 @@
 <nav class="app-nav">
-  <div>Notes</div>
-  <div class="search-inp">
-    <div class="app-nav-title" ng-if="$ctrl.title">{{$ctrl.title}}</div>
-    <input class="app-input" ng-if="!$ctrl.title" type="text" placeholder="Serach note by title">
+  <div>Notes v1.0</div>
+  <div class="menu-center-block">
+    <div class="app-nav-title" ng-if="$ctrl.titleText">{{$ctrl.titleText}}</div>
+    <div class="search" ng-if="!$ctrl.titleText">
+      <input class="app-input" ng-model="$ctrl.search" ng-change="$ctrl.change($event)" type="text"
+        placeholder="Serach note by title">
+      <i ng-if="$ctrl.search" ng-click="$ctrl.clear()" class="las la-backspace"></i>
+    </div>
   </div>
   <div>
     <a href="#!/add-note" title="Add new note" class="add-btn">

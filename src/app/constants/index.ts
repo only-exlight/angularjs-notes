@@ -1,4 +1,4 @@
-import { INoteAction } from '../interfaces';
+import { INoteAction, INote } from '../interfaces';
 
 export enum E_NOTE_ACTION {
   EDIT,
@@ -48,3 +48,12 @@ export const COLORS: string[] = [
 ];
 
 export const NOTES_STORE_KEY = 'notes';
+
+export const DEFAULT_NOTE: INote = {
+  color: '#a228ff',
+  title: 'Notes v1.0 by eXlight!',
+  content:
+    '* Find your note using input \nhigher.\n* Add new note using button \nplus in the menu.\nGood luck!',
+  rotate: -5,
+  date: 0,
+};

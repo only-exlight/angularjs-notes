@@ -1,4 +1,4 @@
-import { IComponentOptions,  } from 'angular';
+import { IComponentOptions } from 'angular';
 import { NoteModel } from 'src/app/models';
 import { NoteService } from 'src/app/services/note.service';
 
@@ -12,10 +12,10 @@ class AddNote {
     private $routeParams: any,
   ) {
     const id = Number(this.$routeParams.id);
-    if (!Number.isNaN(id) && this.noteService.notes[id]) {
-      const data = this.noteService.notes[id].toJSON();
-      this.note = new NoteModel(data);
-      this.title = 'Edit note'
+    const note = this.noteService.getByTimeStamp(id);
+    if (!Number.isNaN(id) && note) {
+      this.note = new NoteModel(note.toJSON());
+      this.title = 'Edit note';
     } else {
       this.title = 'Add new note';
     }

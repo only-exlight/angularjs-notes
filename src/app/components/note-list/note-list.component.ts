@@ -13,11 +13,11 @@ class NoteListComponent {
   public doAction(action: E_NOTE_ACTION, index: number) {
     switch (action) {
       case E_NOTE_ACTION.EDIT: {
-        this.$location.path(`/edit-note/${index}`);
+        this.$location.path(`/edit-note/${this.notes[index].date}`);
         break;
       }
       case E_NOTE_ACTION.REMOVE: {
-        this.noteService.deleteNote(index);
+        this.noteService.deleteNote(this.notes[index].date);
         break;
       }
       default: {

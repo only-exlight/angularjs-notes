@@ -6,6 +6,7 @@ export class NoteModel implements INote {
   content = '';
   color = '';
   rotate = randomInteger(-10, 10);
+  date: number;
 
   constructor(note?: INote) {
     if (note) {
@@ -13,6 +14,7 @@ export class NoteModel implements INote {
       this.content = note.content;
       this.color = note.color;
       this.rotate = note.rotate;
+      this.date = note.date;
     }
   }
 
@@ -22,6 +24,7 @@ export class NoteModel implements INote {
       content: this.content,
       color: this.color,
       rotate: this.rotate,
+      date: this.date,
     };
   }
 }
