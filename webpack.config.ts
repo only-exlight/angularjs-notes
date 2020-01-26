@@ -1,23 +1,22 @@
-import { sync } from "rimraf";
-import { BUILD_FOOLDER, DEVELOPMENT } from "./webpack/webpack.const";
-import { getPlugins } from "./webpack/webpack.plugins";
-import { chooseMode as getMode } from "./webpack/webpack.modes";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
-import { resolve } from "path";
+import { sync } from 'rimraf';
+import { BUILD_FOOLDER, DEVELOPMENT } from './webpack/webpack.const';
+import { getPlugins } from './webpack/webpack.plugins';
+import { chooseMode as getMode } from './webpack/webpack.modes';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 
 export default (_, argv) => {
   delete process.env.TS_NODE_PROJECT;
   const isProd = getMode(argv.mode);
   sync(
     __dirname
-      .split("/")
+      .split('/')
       .slice(0, -1)
-      .join("/") + BUILD_FOOLDER
+      .join('/') + BUILD_FOOLDER,
   );
   return {
     entry: {
-      main: "./src/main.ts"
+      main: './src/main.ts',
     },
     stats: {
       all: false,
@@ -27,38 +26,34 @@ export default (_, argv) => {
       warnings: true,
       moduleTrace: true,
       errorDetails: true,
-      modulesSort: "name"
+      modulesSort: 'name',
     },
     output: {
-      path:
-        __dirname
-          .split("/")
-          .slice(0, -1)
-          .join("/") + BUILD_FOOLDER,
-      filename: "[name].[hash].js"
+      path: `${__dirname}/${BUILD_FOOLDER}`,
+      filename: '[name].[hash].js',
     },
     resolve: {
-      extensions: [".ts", ".js", ".tsx", ".jsx", ".json", "scss", "css"],
+      extensions: ['.ts', '.js', '.tsx', '.jsx', '.json', 'scss', 'css'],
       plugins: [
         new TsconfigPathsPlugin({
-          configFile: "tsconfig.json",
-          baseUrl: "./",
-          logLevel: "ERROR"
-        })
-      ]
+          configFile: 'tsconfig.json',
+          baseUrl: './',
+          logLevel: 'ERROR',
+        }),
+      ],
     },
     module: {
       rules: [
         {
-          enforce: "pre",
+          enforce: 'pre',
           test: /\.(ts|tsx)$/,
           exclude: /node_modules/,
-          loader: "tslint-loader"
+          loader: 'tslint-loader',
         },
         {
           test: /\.(ts|tsx|js|jsx)$/,
           exclude: /node_modules/,
-          loader: "ts-loader"
+          loader: 'ts-loader',
         },
         {
           test: /\.(scss|css)$/,
@@ -66,34 +61,34 @@ export default (_, argv) => {
             {
               loader: MiniCssExtractPlugin.loader,
               options: {
-                hmr: process.env.NODE_ENV === DEVELOPMENT
-              }
+                hmr: process.env.NODE_ENV === DEVELOPMENT,
+              },
             },
-            "css-loader",
-            "sass-loader"
-          ]
+            'css-loader',
+            'sass-loader',
+          ],
         },
         {
           test: /\.(ttf|eot|svg|gif)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
           use: [
             {
-              loader: "file-loader"
-            }
-          ]
+              loader: 'file-loader',
+            },
+          ],
         },
         {
           test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
           use: [
             {
-              loader: "url-loader?limit=10000&mimetype=application/font-woff"
-            }
-          ]
+              loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+            },
+          ],
         },
         {
           test: /\.html$/,
-          use: [{ loader: "html-loader" }]
-        }
-      ]
+          use: [{ loader: 'html-loader' }],
+        },
+      ],
     },
     plugins: getPlugins(isProd),
     optimization: {
@@ -101,27 +96,31 @@ export default (_, argv) => {
       noEmitOnErrors: true,
       removeAvailableModules: true,
       splitChunks: {
-        chunks: "all",
+        chunks: 'all',
         cacheGroups: {
           commons: {
             test: /[\\/]node_modules[\\/]/,
-            name: "vendors",
-            chunks: "all"
-          }
-        }
-      }
+            name: 'vendors',
+            chunks: 'all',
+          },
+        },
+      },
     },
-    devtool: isProd ? false : "source-map",
+    devtool: isProd ? false : 'source-map',
     devServer: {
       open: false,
       overlay: {
-        errors: true
+        errors: true,
       },
       https: true,
-      host: "0.0.0.0",
+      host: '0.0.0.0',
       inline: true,
       historyApiFallback: true,
-      contentBase: __dirname + BUILD_FOOLDER
-    }
+      contentBase: __dirname + BUILD_FOOLDER,
+    },
+    performance: {
+      maxAssetSize: 1024000,
+      maxEntrypointSize: 512000,
+    },
   };
 };
