@@ -1,6 +1,5 @@
 import { IComponentOptions } from 'angular';
 import { NoteModel } from 'src/app/models/note';
-import { NoteService } from 'src/app/services/note.service';
 import { NOTE_ACTIONS, E_NOTE_ACTION } from 'src/app/constants';
 class NoteComponent {
   public model = new NoteModel();
@@ -8,6 +7,12 @@ class NoteComponent {
   public readonly onAction: (arg: { action: E_NOTE_ACTION }) => void;
 
   constructor() {}
+
+  get color() {
+    return {
+      background: `linear-gradient(30deg, ${this.model.color}, #eee)`,
+    };
+  }
 
   public $onInit() {}
 
