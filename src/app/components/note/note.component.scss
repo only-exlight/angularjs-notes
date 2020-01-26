@@ -1,34 +1,71 @@
 @import '../../variables';
 
 .sticker {
-    width: 200px;
-    height: 200px;
-    box-shadow: $shadow;
-    color: #0d47a1;
-    padding: 40px 20px 20px 20px;
-    box-sizing: border-box;
-    font-family: 'Caveat',
-    cursive;
+  width: 200px;
+  height: 200px;
+  box-shadow: $shadow;
+  color: #0d47a1;
+  padding: 40px 10px 38px 10px;
+  box-sizing: border-box;
+  font-family: 'Caveat', cursive;
+  cursor: pointer;
+  border-radius: 2px;
+  position: relative;
+  transition: box-shadow 0.5s;
+
+  .sticker-title {
+    height: 24px;
     text-align: center;
-    cursor: pointer;
-    border-radius: 2px;
-    position: relative;
-    transition: box-shadow .5s;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
 
-    .nail {
-        width: 20px;
-        height: 20px;
-        background: #353535;
-        box-shadow: $shadow;
-        border-radius: 50%;
-        top: 15px;
-        right: calc(50% - 15px);
-        position: absolute;
-    }
+  .sticker-contner {
+    max-height: 82px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-    &:hover {
-        box-shadow: 0 0 10px #eee;
-        transition: box-shadow .2s;
-        z-index: 1;
+  &:hover {
+    .manage {
+      transition: opacity 0.2s;
+      opacity: 1;
     }
+  }
+
+  .nail {
+    width: 20px;
+    height: 20px;
+    background: #353535;
+    box-shadow: $shadow;
+    border-radius: 50%;
+    top: 15px;
+    right: calc(50% - 15px);
+    position: absolute;
+  }
+
+  .manage {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    button {
+      color: #fff;
+      border: none;
+      background: transparent;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      padding: 0;
+      cursor: pointer;
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 0 10px #eee;
+    transition: box-shadow 0.2s;
+    z-index: 1;
+  }
 }
