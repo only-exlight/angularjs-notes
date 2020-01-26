@@ -27,14 +27,19 @@ export class NoteService {
   public deleteNote(timestamp: number) {
     this.allNotes = this.allNotes.filter((n, i) => n.date !== timestamp);
     this.allNotes.forEach((n, i) => (this.notes[i] = n));
-    this.notes.splice(this.allNotes.length - 1, this.notes.length - 1);
+    this.notes.splice(
+      this.allNotes.length - 1 < 0 ? 0 : this.allNotes.length - 1,
+      1,
+    );
     this.writeToStore();
   }
 
   public saveEditedItem(timestamp: number, note: NoteModel) {
     const editedNoteIndex = this.notes.findIndex(n => n.date === timestamp);
     this.notes[editedNoteIndex] = note;
-    const allEditedNoteIndex = this.allNotes.findIndex(n => n.date === timestamp);
+    const allEditedNoteIndex = this.allNotes.findIndex(
+      n => n.date === timestamp,
+    );
     this.allNotes[allEditedNoteIndex] = note;
     this.filterNotes(this.query);
     this.writeToStore();
@@ -67,8 +72,9 @@ export class NoteService {
     if (notesData) {
       try {
         const notesItems: INote[] = JSON.parse(notesData);
-        this.notes = notesItems.map(n => new NoteModel(n));
-        this.allNotes = notesItems.map(n => new NoteModel(n));
+        const notes = notesItems.map(n => new NoteModel(n));
+        this.notes = notes;
+        this.allNotes = notes;
       } catch (error) {
         console.warn('Application: error parse data from store!');
       }
@@ -76,6 +82,7 @@ export class NoteService {
       const defNote = new NoteModel(DEFAULT_NOTE);
       this.notes.push(defNote);
       this.allNotes.push(defNote);
+      this.writeToStore();
     }
   }
 }
