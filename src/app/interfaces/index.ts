@@ -5,3 +5,9 @@ export interface INoteAction {
   action: E_NOTE_ACTION;
   title: string;
 }
+
+export interface INote {
+  title: string;
+  content: string;
+  color: string;
+}

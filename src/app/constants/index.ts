@@ -46,3 +46,5 @@ export const COLORS: string[] = [
   '#A3A5A2',
   '#A8653A',
 ];
+
+export const NOTES_STORE_KEY = 'notes';
