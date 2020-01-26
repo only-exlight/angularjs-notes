@@ -1,0 +1,23 @@
+@import '../../variables';
+
+.pallet {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 150px;
+  .color-blot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 2px;
+    border: 1px solid rgb(131, 131, 131);
+    transition: box-shadow 0.2s;
+    &:hover {
+      box-shadow: $shadow;
+      transition: box-shadow 0.2s;
+    }
+    &.selected {
+      box-shadow: $shadow;
+    }
+  }
+}
