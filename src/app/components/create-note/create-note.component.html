@@ -1,4 +1,4 @@
-<form class="note-editor">
+<form class="note-editor" ng-submit="$ctrl.saveNote()">
   <div class="form-row">
     <div class="form-label">
       <label for="inp-title">Title</label>
@@ -12,7 +12,7 @@
       <label for="inp-content">Content</label>
     </div>
     <div class="form-input">
-      <textarea class="app-area" name="" id="inp-content" cols="30" rows="10" placeholder="Enter note content"
+      <textarea required class="app-area" name="" id="inp-content" cols="30" rows="10" placeholder="Enter note content"
         ng-model="$ctrl.model.content"></textarea>
     </div>
   </div>
@@ -26,6 +26,6 @@
   </div>
   <div class="form-row">
     <button class="app-button" ng-click="$ctrl.saveNote()">Cancel</button>
-    <button class="app-button" ng-click="$ctrl.saveNote()">Save</button>
+    <button class="app-button" type="submit">Save</button>
   </div>
 </form>
