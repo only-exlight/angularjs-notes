@@ -4,9 +4,12 @@ import { NoteService } from 'src/app/services/note.service';
 class Menu {
   public titleText: string;
   public search: string;
+  public appName: string;
 
   constructor(private noteService: NoteService) {
     this.search = this.noteService.query;
+    this.appName =
+      process.env.MODE === 'develop' ? `Notes ${process.env.VERSION}` : 'Notes';
   }
 
   public change() {

@@ -29,7 +29,7 @@ export const getPlugins = (mode: boolean) => {
       chunkFilename: '[id].css'
     }),
     new Dotenv({
-      path: mode ? './src/enviroment/prod.env' : './src/enviroment/dev.env',
+      path: mode ? './src/env/prod.env' : './src/env/dev.env',
       silent: false
     })
   ];
