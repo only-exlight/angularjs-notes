@@ -6,20 +6,8 @@ class CreateNote {
   public onSave: () => void;
   public onCancel: () => void;
 
-  public $onInit() {
-    // console.warn(this);
-  }
-
   public changeColor(color: string) {
     this.model.color = color;
-  }
-
-  public saveNote() {
-    this.onSave();
-  }
-
-  public cancel() {
-    this.onCancel();
   }
 }
 

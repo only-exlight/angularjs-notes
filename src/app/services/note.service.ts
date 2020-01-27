@@ -86,3 +86,5 @@ export class NoteService {
     }
   }
 }
+
+NoteService.$inject = ['storageService'];

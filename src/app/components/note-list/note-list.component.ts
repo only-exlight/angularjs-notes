@@ -27,6 +27,8 @@ class NoteListComponent {
   }
 }
 
+NoteListComponent.$inject = ['noteService', '$location'];
+
 export const NoteList: IComponentOptions = {
   controller: NoteListComponent,
   template: require('./note-list.component.html'),

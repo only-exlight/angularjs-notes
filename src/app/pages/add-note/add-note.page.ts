@@ -36,6 +36,8 @@ class AddNote {
   }
 }
 
+AddNote.$inject = ['noteService', '$location', '$routeParams'];
+
 export const AddNotePage: IComponentOptions = {
   template: require('./add-note.page.html'),
   controller: AddNote,

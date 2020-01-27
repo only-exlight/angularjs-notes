@@ -8,12 +8,7 @@ import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 export default (_, argv) => {
   delete process.env.TS_NODE_PROJECT;
   const isProd = getMode(argv.mode);
-  sync(
-    __dirname
-      .split('/')
-      .slice(0, -1)
-      .join('/') + BUILD_FOOLDER,
-  );
+  sync(`${__dirname}/${BUILD_FOOLDER}`);
   return {
     entry: {
       main: './src/main.ts',

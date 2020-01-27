@@ -19,6 +19,8 @@ class Menu {
   }
 }
 
+Menu.$inject = ['noteService'];
+
 export const MenuComponent: IComponentOptions = {
   controller: Menu,
   template: require('./menu.component.html'),
